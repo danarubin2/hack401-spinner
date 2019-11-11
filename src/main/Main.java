@@ -38,6 +38,8 @@ public class Main {
 		
 		//Makes main frame visible
 		mainFrame.pack();
+		mainFrame.setSize(400, 400);
+		mainFrame.setLocationRelativeTo(null);
 		mainFrame.setVisible(true);
 		
 	}	
