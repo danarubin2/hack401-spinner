@@ -1,1 +1,1 @@
-"# hack401-spinner" 
+Spinner game starter code for COMP 401 Hackathon
