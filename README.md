@@ -3,18 +3,23 @@ Welcome to Cirque de 401! This is the Spinner Game, which represents a game wher
 Main:
   - Creates the Spinner and the SpinnerView, adding it to the GameView
   - Sets up main frame for the game to take place
+  
 Game:
   - Takes in the SpinnerView and StopListener in the constructor
   - Will listen for updates in StopListener and determine how this would change the SpinnerView
   - Updates the GameView using the update() method
+  
 GameView:
   - Visual representation of Game object
+  
 Spinner:
   - Spinner represents the model of the spinner, and it takes in an integer parameter to represent the number of spots along its perimeter
   - Uses “current” field to track where the Spinner is currently lit up
   - Listens for keyboard presses to stop the Spinner at current
+  
 SpinnerView:
   - Visual representation of Spinner object
+  
 StopListener:
   - Listens for key presses for when the user wants to stop the Spinner, notifying the Game when this happens
 
