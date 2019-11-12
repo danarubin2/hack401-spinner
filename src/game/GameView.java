@@ -18,8 +18,9 @@ public class GameView extends JPanel{
 	public void setUpView() {
 		setLayout(new FlowLayout());
 		SpinnerView spinnerView = game.getSpinnerView();
-
+		
 		this.add(spinnerView);
+		//spinnerView.go();
 	}
 	
 }

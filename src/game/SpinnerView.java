@@ -7,12 +7,16 @@ import java.awt.Graphics;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.TimerTask;
+import java.util.Timer;
 
 import javax.swing.JPanel;
 
 public class SpinnerView extends JPanel implements KeyListener{
 	
 	private Spinner spinner;
+	private Color[] colors = {Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.BLACK};
+	private static int DELAY = 200;
 	
 	public SpinnerView(Spinner spinner) {
 		this.spinner = spinner;
@@ -43,17 +47,29 @@ public class SpinnerView extends JPanel implements KeyListener{
 		if (centerX < centerY) {
 			radius = centerX;
 		}
-		drawCenteredCircle(g, 2*radius/5, centerY, radius/5);
-		drawCenteredCircle(g, centerX-radius/2, centerY-radius/2, radius/5);
-		drawCenteredCircle(g, centerX, radius/5, radius/5);
-		drawCenteredCircle(g, centerX+radius/2, centerY-radius/2, radius/5);
-		drawCenteredCircle(g, centerX*2-2*radius/5, centerY, radius/5);
-		drawCenteredCircle(g, centerX+radius/2, centerY+radius/2, radius/5);
-		drawCenteredCircle(g, centerX, centerY*2-radius/5, radius/5);
-		drawCenteredCircle(g, centerX-radius/2, centerY+radius/2, radius/5);
 		
+		int[] x = {centerX, centerX+radius/2, centerX*2-2*radius/5, centerX+radius/2, centerX, centerX-radius/2, 2*radius/5, centerX-radius/2};
+		int[] y = {radius/5, centerY-radius/2, centerY, centerY+radius/2, centerY*2-radius/5, centerY+radius/2, centerY, centerY-radius/2};
+		for (int i = 0; i < x.length; i++) {
+	        g.setColor(colors[i]);
+	        drawCenteredCircle(g, x[i], y[i],radius/5);
+	     }		
 	}
 
+	public void go() {
+	    TimerTask task = new TimerTask() {
+	      public void run() {
+	        Color c = colors[0];
+	        synchronized (colors) {
+	          System.arraycopy(colors, 1, colors, 0, colors.length - 1);
+	          colors[colors.length - 1] = c;
+	        }
+	        repaint();
+	      }
+	    };
+	    Timer timer = new Timer();
+	    timer.schedule(task, 0, DELAY);
+	  }
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
