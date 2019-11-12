@@ -18,7 +18,6 @@ public class GameView extends JPanel{
 	public void setUpView() {
 		setLayout(new FlowLayout());
 		SpinnerView spinnerView = game.getSpinnerView();
-		//spinnerView.setPreferredSize(this.getWidth(), this.getHeight());
 
 		this.add(spinnerView);
 	}

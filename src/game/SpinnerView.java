@@ -21,6 +21,7 @@ public class SpinnerView extends JPanel implements KeyListener{
 	
 	public void setUpSpinner() {
 		setLayout(new FlowLayout());
+		//added in will be taken out after demo
 		setPreferredSize(new Dimension(400,350));
 		this.addKeyListener(new StopListener());
 	}
@@ -29,12 +30,12 @@ public class SpinnerView extends JPanel implements KeyListener{
 		return this.spinner;
 	}
 	
-	public void drawCenteredCircle(Graphics g, int x, int y, int r) {
+	public void drawCenteredCircle(Graphics g, int x, int y, int r) { //added in will be taken out after demo
 		  x = x-(r/2);
 		  y = y-(r/2);
 		  g.fillOval(x,y,r,r);
 	}
-	public void paintComponent(Graphics g){
+	public void paintComponent(Graphics g){ //added in will be taken out after demo
 		g.setColor(Color.RED);
 		int centerX = this.getWidth()/2;
 		int centerY = this.getHeight()/2;

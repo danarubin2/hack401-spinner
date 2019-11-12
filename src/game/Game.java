@@ -12,6 +12,12 @@ public class Game {
 		this.listener = listener;
 	}
 	
+	public boolean isGameOver() {
+		// TODO Method for determining whether game is over
+		
+		return false;
+	}
+	
 	public SpinnerView getSpinnerView() {
 		return this.spinnerView;
 	}
