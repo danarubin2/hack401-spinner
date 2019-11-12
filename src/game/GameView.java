@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class GameView extends JPanel{
@@ -21,6 +22,7 @@ public class GameView extends JPanel{
 		
 		this.add(spinnerView);
 		//spinnerView.go();
+		
 	}
 	
 }

@@ -5,11 +5,9 @@ import java.awt.event.ActionEvent;
 public class Game {
 	
 	private SpinnerView spinnerView;
-	private StopListener listener;
 	
-	public Game(SpinnerView spinnerView, StopListener listener) {
+	public Game(SpinnerView spinnerView) {
 		this.spinnerView = spinnerView;
-		this.listener = listener;
 		spinnerView.go();
 	}
 	
@@ -24,6 +22,6 @@ public class Game {
 	}
 	
 	public void update(ActionEvent e) {
-		
+
 	}
 }

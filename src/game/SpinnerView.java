@@ -7,6 +7,7 @@ import java.awt.Graphics;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
 import java.util.TimerTask;
 import java.util.Timer;
 
@@ -17,6 +18,7 @@ public class SpinnerView extends JPanel implements KeyListener{
 	private Spinner spinner;
 	private Color[] colors = {Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.RED, Color.BLACK};
 	private static int DELAY = 200;
+	private Timer timer;
 	
 	public SpinnerView(Spinner spinner) {
 		this.spinner = spinner;
@@ -27,7 +29,7 @@ public class SpinnerView extends JPanel implements KeyListener{
 		setLayout(new FlowLayout());
 		//added in will be taken out after demo
 		setPreferredSize(new Dimension(400,350));
-		this.addKeyListener(new StopListener());
+		//this.addKeyListener(new StopListener());
 	}
 	
 	public Spinner getSpinner() {
@@ -57,23 +59,31 @@ public class SpinnerView extends JPanel implements KeyListener{
 	}
 
 	public void go() {
-	    TimerTask task = new TimerTask() {
-	      public void run() {
-	        Color c = colors[0];
-	        synchronized (colors) {
-	          System.arraycopy(colors, 1, colors, 0, colors.length - 1);
-	          colors[colors.length - 1] = c;
-	        }
-	        repaint();
-	      }
-	    };
-	    Timer timer = new Timer();
-	    timer.schedule(task, 0, DELAY);
-	  }
+	    makeNewTimer();
+	 }
+	
+	private void makeNewTimer() {
+		TimerTask task = new TimerTask() {
+		      public void run() {
+		        Color c = colors[0];
+		        synchronized (colors) {
+		          System.arraycopy(colors, 1, colors, 0, colors.length - 1);
+		          colors[colors.length - 1] = c;
+		        }
+		        repaint();
+		      }
+		    };
+		    Timer timer = new Timer();
+		    timer.schedule(task, 0, DELAY);
+		    this.timer = timer;
+	}
+
 	@Override
-	public void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void keyPressed(KeyEvent e) {
+		timer.cancel();
+		if(e.getKeyCode() != KeyEvent.VK_SPACE) {
+			makeNewTimer();
+		}
 	}
 
 	@Override
@@ -87,4 +97,5 @@ public class SpinnerView extends JPanel implements KeyListener{
 		// TODO Auto-generated method stub
 		
 	}
+	
 }
