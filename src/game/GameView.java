@@ -20,7 +20,6 @@ public class GameView extends JPanel{
 		SpinnerView spinnerView = game.getSpinnerView();
 		
 		this.add(spinnerView);
-		//spinnerView.go();
 	}
 	
 }

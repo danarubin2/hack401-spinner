@@ -10,7 +10,6 @@ public class Game {
 	public Game(SpinnerView spinnerView, StopListener listener) {
 		this.spinnerView = spinnerView;
 		this.listener = listener;
-		spinnerView.go();
 	}
 	
 	public boolean isGameOver() {
