@@ -2,14 +2,20 @@ package game;
 
 import java.awt.event.ActionEvent;
 
+/*
+ * Represents the Game object. The Game Object will encapsulate
+ * a SpinnerView, be able to tell when the game is over, and update the Spinner
+ * according to events. Feel free to add more, like a way to track the player
+ * score.
+ */
+
 public class Game {
 	
 	private SpinnerView spinnerView;
-	private StopListener listener;
 	
-	public Game(SpinnerView spinnerView, StopListener listener) {
+	public Game(SpinnerView spinnerView) {
 		this.spinnerView = spinnerView;
-		this.listener = listener;
+		spinnerView.go();
 	}
 	
 	public boolean isGameOver() {

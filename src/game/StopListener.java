@@ -3,6 +3,12 @@ package game;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/*
+ * The StopListener class- you can add whatever methods here that will help
+ * you implement your listeners for stopping the Spinner.
+ */
+
+
 public class StopListener implements KeyListener {
 
 	@Override
@@ -22,5 +28,4 @@ public class StopListener implements KeyListener {
 		// TODO Auto-generated method stub
 		
 	}
-
 }
